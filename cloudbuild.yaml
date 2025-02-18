@@ -24,9 +24,28 @@ steps:
     args: ['compute', 'instances',
            'create-with-container', 'my-vm-hello-rest',
            '--container-image',
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/hello-image',
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/hello-image:latest',
            '--tags',
-           'rest']
+           'rest-server']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    timeout: 240s
+    args: ['compute', 'firewall-rules',
+           'create', 'rest-allow-http',
+           '--directions',
+           'INGRESS',
+           '--priority',
+           '1000',
+           '--network',
+           'default',
+           '--action',
+           'ALLOW',
+           '--rules',
+           'tcp:80',
+           '--source-ranges',
+           '0.0.0.0/0',
+           '--target-tags',
+           'rest-server']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
