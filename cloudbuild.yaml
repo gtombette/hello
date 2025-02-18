@@ -35,7 +35,7 @@ steps:
     timeout: 240s
     args: ['compute', 'firewall-rules',
            'create', 'rest-allow-http',
-           '--directions',
+           '--direction',
            'INGRESS',
            '--priority',
            '1000',
