@@ -25,7 +25,7 @@ steps:
            'create-with-container', 'my-vm-hello-rest',
            '--container-image',
            'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/hello-image',
-           '--tag',
+           '--tags',
            'rest']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
