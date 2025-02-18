@@ -1,8 +1,8 @@
 steps:
-  - name: 'maven_version'
+  - name: 'maven'
     entrypoint: 'mvn'
     args: ['--version']
-  - name: 'maven_help'
+  - name: 'maven'
     entrypoint: 'mvn'
     args: ['--help']
 options:
