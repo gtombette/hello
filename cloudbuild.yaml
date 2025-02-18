@@ -1,6 +1,9 @@
 steps:
-  - name: 'maven'
+  - name: 'maven_version'
     entrypoint: 'mvn'
     args: ['--version']
+  - name: 'maven_help'
+    entrypoint: 'mvn'
+    args: ['--help']
 options:
   logging: CLOUD_LOGGING_ONLY
