@@ -47,7 +47,7 @@ steps:
     args: ['compute', 'instances',
            'create-with-container', 'my-vm-hello-rest',
            '--container-image',
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/hello-image',
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/hello-image:latest',
            '--tags',
            'rest-server']
     env:
