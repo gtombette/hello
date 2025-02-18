@@ -24,7 +24,7 @@ steps:
     args: ['compute', 'instances',
            'create-with-container', 'my-vm-hello-rest',
            '--container-image',
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/hello-image:latest',
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/hello-image',
            '--tags',
            'rest-server']
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
