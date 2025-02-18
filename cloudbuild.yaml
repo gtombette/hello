@@ -5,5 +5,11 @@ steps:
   - name: 'maven'
     entrypoint: 'mvn'
     args: ['--help']
+  - name: 'maven'
+    entrypoint: mvn
+    args: [ 'package','-Dmaven.test.skip=true' ]
+  - name: gcr.io/cloud-builders/docker
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/my-poc-project-450109/my-docker-repo/hello-image', '--build-arg=JAR_FILE=target/build-artifact', '.' ]
+images: [ 'us-central1-docker.pkg.dev/my-poc-project-450109/my-docker-repo/hello-image' ]
 options:
   logging: CLOUD_LOGGING_ONLY
